@@ -619,7 +619,7 @@
     <audio id="openSound" src="magia.mp3"></audio>
     <audio id="bgMusic" src="Emilly.mp3" loop></audio>
 
-    <div class="start-screen" id="startScreen" onclick="startExperience()">
+    <div class="start-screen" id="startScreen" onclick="startExperience()" ontouchstart="startExperience()">
         <p>✨ Toque para iniciar a magia ✨</p>
     </div>
 
@@ -630,7 +630,7 @@
     <div class="intro" id="introScreen">
         <div class="intro-text-container">
             <h1>Você foi escolhido para uma noite secreta...<br><span>Emilly Angell</span></h1>
-            <button class="btn-unlock" onclick="unlockInvite()">O Segredo (Abrir Convite) 🔓</button>
+            <button class="btn-unlock" onclick="unlockInvite()" ontouchstart="unlockInvite()">O Segredo (Abrir Convite) 🔓</button>
         </div>
     </div>
 
@@ -768,7 +768,15 @@
         // === CONFIGURAR SUPABASE AQUI ===
         const supabaseUrl = 'https://xihkdfdlwfwaxfckhjnl.supabase.co'; // Extraído via Token
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhpaGtkZmRsd2Z3YXhmY2toam5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzczMjExMjEsImV4cCI6MjA5Mjg5NzEyMX0.4hvCeVI1WlXGo48PLHKSZAz9pk3C8fm1nZCGVjwfaTc'; 
-        const supabase = supabaseUrl !== 'SUA_URL_DO_SUPABASE' ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
+        
+        let supabase = null;
+        try {
+            if (window.supabase) {
+                supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+            }
+        } catch (error) {
+            console.error("API Supabase Indisponível:", error);
+        }
 
         // [DASHBOARD] Controle de Estrelas
         const starsContainer = document.getElementById('stars');
