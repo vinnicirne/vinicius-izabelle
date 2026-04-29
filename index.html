@@ -4,43 +4,39 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aniversário do Lucas 🎈</title>
+    <title>Nali Ateliê | Coleção Outono/Inverno</title>
 
     <!-- [FEATURE: OPEN GRAPH / WHATSAPP META TAGS] -->
-    <meta property="og:title" content="Aniversário do Lucas! 🎈" />
+    <meta property="og:title" content="Lançamento Exclusivo - Nali Ateliê ✨" />
     <meta property="og:description"
-        content="Você está convidado para entrar no mundo de Bluey & Sua Turma! Toque para abrir o convite." />
-    <meta property="og:image" content="https://raw.githubusercontent.com/vinnicirne/vinicius-izabelle/main/bluey_familia.png" />
+        content="Descubra a nova coleção Outono/Inverno. Peças exclusivas pensadas para o seu estilo." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/vinnicirne/vinicius-izabelle/main/foto4.png" />
     <meta property="og:url" content="https://vinnicirne.github.io/vinicius-izabelle/" />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#4da8da" />
+    <meta name="theme-color" content="#e8a5a5" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #4da8da; /* Bluey Blue */
-            --primary-dark: #0077b6;
-            --accent: #f2a65a; /* Bingo Orange */
-            --bg-dark: #e3f2fd; /* Soft Sky Blue */
-            --glass: rgba(255, 255, 255, 0.95);
-            --text: #03045e; /* Deep Blue */
-            --text-gold: #f2a65a;
+            --primary: #e8a5a5; /* Dusty Rose */
+            --primary-dark: #8c5252; /* Burgundy/Brown */
+            --accent: #d4af37; /* Gold */
+            --bg-dark: #121212; /* Rich Dark */
+            --glass: rgba(18, 18, 18, 0.85);
+            --text: #ffffff;
+            --text-gold: #d4af37;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            background-image: url('bluey_montage.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             color: var(--text);
             display: flex;
             align-items: center;
@@ -61,6 +57,9 @@
             border-radius: 20px;
             overflow: hidden;
             pointer-events: none;
+            background-image: url('foto1.png');
+            background-size: cover;
+            background-position: center;
         }
 
         .card-bg-video video {
@@ -75,17 +74,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(77, 168, 218, 0.2), rgba(3, 4, 94, 0.4));
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.8));
         }
 
-        /* [FEATURE: INTRO ANIMADA - INFANTIL] */
+        /* [FEATURE: INTRO ANIMADA] */
         .intro {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: #121212;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -106,73 +105,56 @@
         }
 
         .intro h1 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
             color: #ffffff;
             opacity: 0;
             animation: fadeInText 3s forwards;
             line-height: 1.4;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
         }
 
         .intro h1 span {
-            color: #fff;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 42px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-style: italic;
             display: block;
             margin-top: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 50px;
         }
 
         .btn-unlock {
             opacity: 0;
             margin-top: 40px;
             padding: 15px 40px;
-            background: #fff;
-            border: none;
-            color: var(--primary-dark);
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: 700;
-            font-family: 'Fredoka', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
             animation: fadeInUp 1.5s ease forwards 2.5s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .btn-unlock:hover {
-            background: var(--accent);
-            color: #fff;
-            transform: scale(1.05) rotate(2deg);
+            background: var(--primary);
+            color: #121212;
+            box-shadow: 0 0 20px rgba(232, 165, 165, 0.4);
         }
 
         @keyframes fadeInText {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .main-content {
@@ -194,14 +176,30 @@
 
         .container {
             width: 100%;
-            background: linear-gradient(135deg, rgba(227, 242, 253, 0.98), rgba(255, 243, 224, 0.98));
-            border-radius: 30px;
+            background: var(--glass);
+            border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(3, 4, 94, 0.15);
-            border: 4px solid rgba(77, 168, 218, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(232, 165, 165, 0.2);
             position: relative;
             z-index: 1;
+        }
+
+        /* [FEATURE: MOBILE FIRST] */
+        @media (max-width: 480px) {
+            body { padding: 0; }
+            .container {
+                border-radius: 0;
+                border: none;
+                padding: 40px 20px;
+                min-height: 100vh;
+                box-shadow: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .card-bg-video { border-radius: 0; }
         }
 
         /* [FEATURE: MOBILE FIRST / STORIES VIEW] */
@@ -245,10 +243,10 @@
             height: 180px;
             border-radius: 50%;
             overflow: hidden;
-            border: 6px solid var(--primary);
-            box-shadow: 0 10px 20px rgba(3, 4, 94, 0.2);
+            border: 3px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             animation: floatPhoto 4s ease-in-out infinite;
-            background: #fff;
+            background: #121212;
         }
 
         .photo-frame img {
@@ -258,46 +256,52 @@
         }
 
         @keyframes floatPhoto {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(3deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         h2 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 42px;
-            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--text);
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .subtitle {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 18px;
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
         }
 
         .name {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
             font-weight: 700;
-            color: var(--accent);
+            font-style: italic;
+            color: var(--primary);
             margin-bottom: 30px;
         }
 
         /* COUNTDOWN UI */
         .countdown-container {
-            background: rgba(77, 168, 218, 0.1);
+            background: rgba(232, 165, 165, 0.05);
             margin-top: 20px;
             padding: 20px;
-            border-radius: 20px;
-            border: 2px dashed var(--primary);
+            border-radius: 15px;
+            border: 1px solid rgba(232, 165, 165, 0.2);
         }
 
         .countdown-container h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 14px;
-            color: var(--primary-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 15px;
         }
 
@@ -313,16 +317,17 @@
         }
 
         .countdown-item span {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-family: 'Fredoka', sans-serif;
+            font-size: 32px;
+            font-weight: 300;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .countdown-item p {
-            font-size: 12px;
-            color: var(--text);
-            font-weight: 600;
+            font-size: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-top: 5px;
         }
 
@@ -335,46 +340,51 @@
         }
 
         .info-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.03);
             padding: 20px;
-            border-radius: 20px;
-            border: 2px solid rgba(77, 168, 218, 0.2);
+            border-radius: 15px;
+            border: 1px solid rgba(232, 165, 165, 0.1);
             transition: all 0.3s ease;
         }
 
         .info-card:hover {
-            transform: translateY(-3px) scale(1.02);
+            transform: translateY(-3px);
             border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .info-card strong {
             display: block;
-            color: var(--primary-dark);
-            font-family: 'Fredoka', sans-serif;
-            font-size: 14px;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
         .dress-code-box {
-            background: linear-gradient(135deg, rgba(77, 168, 218, 0.1), rgba(242, 166, 90, 0.1));
+            background: rgba(232, 165, 165, 0.05);
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 15px;
             margin-bottom: 20px;
-            border: 2px dashed var(--accent);
+            border: 1px solid rgba(232, 165, 165, 0.2);
         }
 
         .dress-code-box strong {
             display: block;
             color: var(--accent);
-            font-family: 'Fredoka', sans-serif;
-            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
         .dress-code-box p {
             font-size: 14px;
             color: var(--text);
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .btn-group {
@@ -389,35 +399,36 @@
             width: 100%;
             padding: 16px;
             border-radius: 50px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            color: #fff;
+            background: var(--primary);
+            color: #121212;
             text-decoration: none;
-            font-weight: 700;
-            font-family: 'Fredoka', sans-serif;
-            font-size: 18px;
-            box-shadow: 0 8px 15px rgba(77, 168, 218, 0.3);
-            text-align: center;
-            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .btn:hover {
-            transform: translateY(-3px) rotate(-1deg);
-            box-shadow: 0 12px 20px rgba(77, 168, 218, 0.5);
-            background: linear-gradient(90deg, var(--accent), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 165, 165, 0.4);
+            background: var(--accent);
         }
 
         .btn-secondary {
-            background: #fff;
-            color: var(--primary-dark);
-            border: 2px solid var(--primary);
-            box-shadow: none;
+            background: transparent;
+            border: 1px solid rgba(232, 165, 165, 0.5);
+            color: var(--text);
         }
 
         .btn-secondary:hover {
-            background: rgba(77, 168, 218, 0.1);
-            color: var(--primary-dark);
+            border-color: var(--primary);
+            background: rgba(232, 165, 165, 0.1);
+            color: var(--primary);
         }
 
         footer {
@@ -581,17 +592,17 @@
 
     <!-- Audios -->
     <audio id="openSound" src="magia.mp3"></audio>
-    <audio id="bgMusic" src="musica_infantil.mp3" loop></audio>
+    <audio id="bgMusic" src="musica_casamento.mp3" loop></audio>
 
     <div class="start-screen" id="startScreen" onclick="startExperience()" ontouchstart="startExperience()">
-        <p>🎈 Toque para iniciar a diversão! 🎈</p>
+        <p>✨ Toque para revelar a Coleção ✨</p>
     </div>
 
     <!-- [FEATURE: INTRO ANIMADA INTERATIVA] -->
     <div class="intro" id="introScreen">
         <div class="intro-text-container">
-            <h1>Prepare-se para entrar no mundo de...<br><span>Bluey & Sua Turma!</span></h1>
-            <button class="btn-unlock" onclick="unlockInvite()" ontouchstart="unlockInvite()">Entrar na Festa! 🎈</button>
+            <h1>Lançamento Exclusivo...<br><span>Coleção Outono/Inverno</span></h1>
+            <button class="btn-unlock" onclick="unlockInvite()" ontouchstart="unlockInvite()">Descobrir ✨</button>
         </div>
     </div>
 
@@ -610,17 +621,17 @@
             <button id="musicToggle" class="music-toggle" onclick="toggleMusic()">🔊</button>
             <div class="photo-wrapper">
                 <div class="photo-frame">
-                    <img src="bluey_familia.png" alt="Aniversariante" id="casalPhoto">
+                    <img src="foto4.png" alt="Nali Ateliê" id="casalPhoto">
                 </div>
             </div>
 
-            <p class="subtitle">Você está convidado para o</p>
-            <h2>Aniversário</h2>
-            <div class="name">do Lucas! 🎈</div>
+            <p class="subtitle">Nova Coleção</p>
+            <h2>Outono / Inverno</h2>
+            <div class="name" style="font-size: 24px; font-style: normal; font-family: 'Montserrat', sans-serif;">Nali Ateliê</div>
 
             <!-- COUNTDOWN -->
             <div class="countdown-container">
-                <h3>⏳ Contagem Regressiva para a Festa</h3>
+                <h3>⏳ Contagem Regressiva para o Lançamento</h3>
                 <div class="countdown-grid">
                     <div class="countdown-item"><span id="days">00</span>
                         <p>Dias</p>
@@ -636,93 +647,37 @@
 
             <div class="details-grid">
                 <div class="info-card">
-                    <strong>📅 Data</strong>
-                    12 de Dezembro
+                    <strong>📅 Lançamento</strong>
+                    Em Breve
                 </div>
                 <div class="info-card">
-                    <strong>⏰ Horário</strong>
-                    17:00h
+                    <strong>📍 Local</strong>
+                    Loja Física & Online
                 </div>
             </div>
 
             <div class="dress-code-box">
-                <strong>👕 Traje</strong>
-                <p>Roupa confortável para brincar muito!</p>
+                <strong>❤️ Um toque de Amor, em cada detalhe.</strong>
+                <p>Peças exclusivas pensadas para o seu conforto e estilo neste Outono/Inverno.</p>
             </div>
 
-            <!-- LINK PARA O MURAL -->
-            <a class="btn btn-secondary" onclick="openSPA('viewMural')"
-                style="cursor: pointer; margin-bottom: 20px; font-size: 14px;">
-                ✍️ Mural de Parabéns
-            </a>
-
             <div class="btn-group">
-                <button class="btn" onclick="confirmPresence()">
-                    Confirmar Presença 🎈
-                </button>
-                <a class="btn btn-secondary" onclick="openSPA('viewSugestoes')" style="cursor: pointer;">
-                    🎁 Sugestões de Presentes
+                <a class="btn" href="https://www.instagram.com/use.naliatelie/" target="_blank">
+                    🛍️ Ver Coleção no Instagram
                 </a>
-                <a class="btn btn-secondary" href="https://maps.app.goo.gl/wSFLmZDxpDuYiSnL8" target="_blank">
-                    🗺️ Local da Festa
+                <a class="btn btn-secondary" href="https://wa.me/5500000000000" target="_blank">
+                    💬 Atendimento no WhatsApp
+                </a>
+                <a class="btn btn-secondary" href="https://maps.app.goo.gl/..." target="_blank">
+                    📍 Como Chegar (Loja Física)
                 </a>
             </div>
 
             <footer>
-                Espero você lá! ✨
+                Descubra o seu novo estilo. ✨
             </footer>
         </div> <!-- /viewHome -->
 
-        <!-- VIEW: SUGESTOES -->
-        <div class="container" id="viewSugestoes"
-            style="display:none; flex-direction:column; animation: fadeInUp 0.8s ease-out forwards;">
-            <div style="font-size: 50px; margin-bottom: 10px; animation: float 3s ease-in-out infinite;">🎁</div>
-            <h2 style="font-size: 36px; margin-bottom: 15px;">Lista de Presentes</h2>
-            <p style="font-size: 14px; color: var(--text); margin-bottom: 25px; line-height: 1.5; font-weight: 600;">Caso deseje me presentear, aqui estão algumas sugestões:</p>
-
-            <!-- PIX BOX -->
-            <div class="dress-code-box" style="cursor:pointer;" onclick="copyPix()">
-                <strong>🔑 Pix para Presentes</strong>
-                <p>Clique para copiar a chave Pix</p>
-                <div
-                    style="background: rgba(77, 168, 218, 0.1); padding: 10px; border-radius: 8px; font-family: monospace; font-size: 14px; color: var(--primary-dark); margin-top: 10px; border: 1px solid var(--primary); font-weight: 700;">
-                    pix@aniversariodolucas.com
-                </div>
-            </div>
-
-            <a onclick="closeSPA()"
-                style="cursor:pointer; display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; border-radius: 50px; background: var(--primary); color: #fff; font-weight: 700; font-size: 14px; border: none; align-self: center;">⬅️
-                Voltar</a>
-        </div>
-
-        <!-- VIEW: MURAL -->
-        <div class="container" id="viewMural"
-            style="display:none; flex-direction:column; animation: fadeInUp 0.8s ease-out forwards;">
-            <h2 style="font-size: 45px;">✍️</h2>
-            <h2 style="font-size: 36px; margin-bottom: 15px;">Mural de Parabéns</h2>
-            <p style="font-size: 14px; color: var(--text); margin-bottom: 20px; line-height: 1.5; font-weight: 600;">Deixe uma mensagem de parabéns para o Lucas!</p>
-            <div style="width: 100%;">
-                <input type="text" id="spaGuestName" placeholder="Seu nome"
-                    style="width: 100%; background: #fff; border: 2px solid var(--primary); border-radius: 10px; padding: 12px; color: var(--text); font-size: 14px; margin-bottom: 15px; outline: none; font-family: 'Fredoka', sans-serif;" />
-                <textarea id="spaGuestMessage" placeholder="Sua mensagem de parabéns..."
-                    style="width: 100%; background: #fff; border: 2px solid var(--primary); border-radius: 10px; padding: 12px; color: var(--text); font-size: 14px; margin-bottom: 15px; outline: none; resize: none; min-height: 80px; font-family: 'Fredoka', sans-serif;"></textarea>
-                <button onclick="spaAddMessage()"
-                    style="font-size: 16px; padding: 12px; width: 100%; background: var(--accent); border: none; color: #fff; border-radius: 50px; cursor: pointer; font-weight: 700; font-family: 'Fredoka', sans-serif; margin-bottom: 15px;">Enviar Parabéns! 🎉</button>
-            </div>
-            <div id="spaMessagesList"
-                style="margin-top: 5px; max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; text-align: left; padding-right: 5px;">
-            </div>
-            <a onclick="closeSPA()"
-                style="cursor:pointer; display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; border-radius: 50px; background: var(--primary); color: #fff; font-weight: 700; font-size: 14px; border: none; align-self: center; margin-top: 20px;">⬅️
-                Voltar</a>
-        </div>
-    </div>
-
-    <!-- Tela de confirmação -->
-    <div class="confirmation-overlay" id="confOverlay">
-        <div class="conf-icon">🎈</div>
-        <div class="conf-text">Presença confirmada!<br><span
-                style="font-size: 16px; color: var(--accent); display: block; margin-top: 15px; font-family: 'Fredoka', sans-serif; font-weight: 700;">Nos vemos na festinha!</span></div>
     </div>
 
     <div id="toast">📋 Texto copiado!</div>
@@ -790,8 +745,6 @@
         }
 
         window.onload = function () {
-            spaLoadMessages();
-            
             // Countdown Logic
             const targetDate = new Date('December 12, 2026 17:00:00').getTime();
             const countdownInterval = setInterval(function() {
@@ -802,122 +755,15 @@
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-                document.getElementById('days').innerText = String(days).padStart(2, '0');
-                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                if (document.getElementById('days')) document.getElementById('days').innerText = String(days).padStart(2, '0');
+                if (document.getElementById('hours')) document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                if (document.getElementById('minutes')) document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
 
                 if (distance < 0) {
                     clearInterval(countdownInterval);
-                    document.getElementById('days').innerText = "00";
-                    document.getElementById('hours').innerText = "00";
-                    document.getElementById('minutes').innerText = "00";
                 }
             }, 1000);
         };
-
-        function openSPA(viewId) {
-            document.getElementById('viewHome').style.display = 'none';
-            document.getElementById('viewSugestoes').style.display = 'none';
-            document.getElementById('viewMural').style.display = 'none';
-            document.getElementById(viewId).style.display = 'flex';
-            if (viewId === 'viewMural') spaLoadMessages();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeSPA() {
-            document.getElementById('viewSugestoes').style.display = 'none';
-            document.getElementById('viewMural').style.display = 'none';
-            document.getElementById('viewHome').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        async function spaLoadMessages() {
-            const list = document.getElementById('spaMessagesList');
-            list.innerHTML = '<p style="color:#888; font-size:13px; text-align:center;">Carregando mensagens...</p>';
-
-            let messages = [];
-
-            if (supabaseClient) {
-                const { data, error } = await supabaseClient.from('mural_messages').select('*').order('created_at', { ascending: false });
-                if (!error && data) {
-                    messages = data;
-                } else {
-                    console.error("Erro Supabase:", error);
-                    messages = JSON.parse(localStorage.getItem('casamento_messages') || '[]');
-                }
-            } else {
-                messages = JSON.parse(localStorage.getItem('casamento_messages') || '[]');
-            }
-
-            list.innerHTML = '';
-            if (messages.length === 0) {
-                list.innerHTML = '<p style="color:#888; font-size:13px; text-align:center;">Nenhuma mensagem ainda. Seja o primeiro!</p>';
-            }
-            messages.forEach(msg => {
-                let dataFormatada = '';
-                if (msg.created_at) {
-                    const dateObj = new Date(msg.created_at);
-                    dataFormatada = dateObj.toLocaleDateString('pt-BR');
-                } else {
-                    dataFormatada = msg.date || new Date().toLocaleDateString('pt-BR');
-                }
-
-                list.innerHTML += `<div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 12px; border-left: 4px solid var(--primary); animation: fadeInText 0.5s ease-out;">
-                    <strong style="display:block; color:var(--primary); font-size:14px;">${msg.name}</strong>
-                    <span style="font-size:13px; color:#eee; line-height:1.4; display:block; margin: 4px 0;">${msg.message || msg.text}</span>
-                    <small style="font-size:10px; color:#888; display:block; text-align:right;">${dataFormatada}</small>
-                </div>`;
-            });
-        }
-
-        async function spaAddMessage() {
-            const name = document.getElementById('spaGuestName').value;
-            const text = document.getElementById('spaGuestMessage').value;
-            if (!name || !text) return;
-
-            const btn = document.querySelector('button[onclick="spaAddMessage()"]');
-            const oldText = btn.innerText;
-            btn.innerText = "Enviando... ⏳";
-            btn.disabled = true;
-
-            if (supabaseClient) {
-                const { error } = await supabaseClient.from('mural_messages').insert([{ name: name, message: text }]);
-                if (error) console.error("Erro ao salvar no banco:", error);
-            } else {
-                const messages = JSON.parse(localStorage.getItem('casamento_messages') || '[]');
-                messages.unshift({ name, text, date: new Date().toLocaleDateString('pt-BR') });
-                localStorage.setItem('casamento_messages', JSON.stringify(messages));
-            }
-
-            document.getElementById('spaGuestName').value = '';
-            document.getElementById('spaGuestMessage').value = '';
-
-            await spaLoadMessages();
-
-            btn.innerText = oldText;
-            btn.disabled = false;
-
-            showToast('Mensagem enviada com carinho! 💖');
-        }
-
-        function confirmPresence() {
-            const overlay = document.getElementById('confOverlay');
-            overlay.classList.add('active');
-
-            setTimeout(() => {
-                const phone = "5521973111244"; // User can replace
-                const message = encodeURIComponent("Oi Vinicius e Izabelle! Confirmo minha presença no casamento! 🥂");
-                window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-                setTimeout(() => overlay.classList.remove('active'), 2000);
-            }, 2500);
-        }
-
-        function copyPix() {
-            const pixKey = "pix@casamentovinieiza.com";
-            navigator.clipboard.writeText(pixKey).then(() => {
-                showToast('Chave Pix copiada! 📋');
-            });
-        }
 
         function showToast(text) {
             const toast = document.getElementById('toast');
@@ -926,23 +772,14 @@
             setTimeout(() => { toast.className = ''; }, 3000);
         }
 
-        // Countdown (Alvo: 12 de Dezembro de 2026)
-        const targetDate = new Date("December 12, 2026 17:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-            if (diff > 0) {
-                document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-                document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                document.getElementById("minutes").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            }
-        }, 1000);
-
         // Fallback photo
         const img = document.getElementById('casalPhoto');
-        img.onerror = function () {
-            this.src = "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"; // Premium wedding placeholder
-        };
+        if (img) {
+            img.onerror = function () {
+                this.src = "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"; // Premium fashion placeholder
+            };
+        }
+
     </script>
 </body>
 
