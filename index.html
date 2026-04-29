@@ -344,29 +344,32 @@
             position: relative;
             width: 100%;
             max-width: 350px;
-            margin: 0 auto 30px;
+            margin: 0 auto 15px;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(232, 165, 165, 0.3);
+            aspect-ratio: 3/4;
         }
 
         .slider-wrapper {
             display: flex;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             width: 100%;
+            height: 100%;
         }
 
         .slide {
             min-width: 100%;
-            height: 500px;
+            height: 100%;
             position: relative;
+            background: #121212;
         }
 
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .slider-btn {
@@ -407,7 +410,8 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
+            margin-bottom: 25px;
         }
 
         .dot {
@@ -443,12 +447,13 @@
             border: 1px solid rgba(232, 165, 165, 0.2);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: #121212;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.6s ease;
         }
 
@@ -516,8 +521,43 @@
             transition: transform 0.3s ease;
         }
 
-        .lightbox.active img {
-            transform: scale(1);
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(18, 18, 18, 0.7);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10010;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-btn:hover {
+            background: var(--primary);
+            color: #121212;
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .lightbox-btn.prev { left: 20px; }
+        .lightbox-btn.next { right: 20px; }
+
+        @media (max-width: 480px) {
+            .lightbox-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .lightbox-btn.prev { left: 10px; }
+            .lightbox-btn.next { right: 10px; }
         }
 
         .lightbox-close {
@@ -910,14 +950,14 @@
                         <div class="slide"><img src="look5.png" alt="Look 5" onclick="openLightbox(this.src)"></div>
                     </div>
                     <button class="slider-btn next" onclick="moveSlide(1)">❯</button>
-                    
-                    <div class="slider-dots" id="sliderDots">
-                        <div class="dot active" onclick="currentSlide(0)"></div>
-                        <div class="dot" onclick="currentSlide(1)"></div>
-                        <div class="dot" onclick="currentSlide(2)"></div>
-                        <div class="dot" onclick="currentSlide(3)"></div>
-                        <div class="dot" onclick="currentSlide(4)"></div>
-                    </div>
+                </div>
+
+                <div class="slider-dots" id="sliderDots">
+                    <div class="dot active" onclick="currentSlide(0)"></div>
+                    <div class="dot" onclick="currentSlide(1)"></div>
+                    <div class="dot" onclick="currentSlide(2)"></div>
+                    <div class="dot" onclick="currentSlide(3)"></div>
+                    <div class="dot" onclick="currentSlide(4)"></div>
                 </div>
             </div>
 
@@ -997,9 +1037,11 @@
     <div id="toast">📋 Texto copiado!</div>
 
     <!-- [FEATURE: LIGHTBOX / ZOOM DA IMAGEM] -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightboxImg" src="" alt="Imagem Ampliada">
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <button class="lightbox-btn prev" onclick="navigateLightbox(-1, event)">❮</button>
+        <img id="lightboxImg" src="" alt="Imagem Ampliada" onclick="event.stopPropagation()">
+        <button class="lightbox-btn next" onclick="navigateLightbox(1, event)">❯</button>
     </div>
 
     <!-- CDN Supabase -->
@@ -1047,19 +1089,43 @@
             }, 1000);
         }
 
+        let currentLightboxIndex = 0;
+        const lightboxImages = ['look1.png', 'look2.png', 'look3.png', 'look4.png', 'look5.png'];
+
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             if (lightbox && lightboxImg) {
+                const filename = src.split('/').pop();
+                const index = lightboxImages.indexOf(filename);
+                if (index !== -1) {
+                    currentLightboxIndex = index;
+                }
                 lightboxImg.src = src;
                 lightbox.classList.add('active');
             }
         }
 
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox) {
-                lightbox.classList.remove('active');
+        function closeLightbox(event) {
+            if (!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            }
+        }
+
+        function navigateLightbox(direction, event) {
+            if (event) event.stopPropagation();
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex >= lightboxImages.length) {
+                currentLightboxIndex = 0;
+            } else if (currentLightboxIndex < 0) {
+                currentLightboxIndex = lightboxImages.length - 1;
+            }
+            const lightboxImg = document.getElementById('lightboxImg');
+            if (lightboxImg) {
+                lightboxImg.src = lightboxImages[currentLightboxIndex];
             }
         }
 
